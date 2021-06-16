@@ -14,6 +14,15 @@
 
   // This is for telling wordpress to handle what the title is showing
   function university_features() {
+
+    // The line below is for activating the option menus in Appearance tab in admin
+    // How does it work: it registers a new menu location, in which, you can select a created custom menu
+    // Thsi is particularly usefull for themes published for other people
+    // register_nav_menu('headerMenuLocation', 'Header Menu Location');
+
+    // The same for the header location registered above, but for footer
+    // register_nav_menu('footerLocationOne', 'Footer Location One');
+    // register_nav_menu('footerLocationTwo', 'Footer Location Two');
     add_theme_support('title-tag');
   }
 
