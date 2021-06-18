@@ -4,9 +4,23 @@
   function university_files() {
     // NULL -- does it depend on other scripts?
     // true -- do you want to load this file right under the closing body tag?
-    wp_enqueue_script('main-university-js', get_theme_file_uri( '/js/scripts-bundled.js'), NULL, '1.0', true);
+    // wp_enqueue_script('main-university-js', get_theme_file_uri( '/js/scripts-bundled.js'), NULL, '1.0', true);
     wp_enqueue_style( 'custom-google-fonts', '//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i|Roboto:100,300,400,400i,700,700i');
     wp_enqueue_style('font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+    // wp_enqueue_style('university_main_styles', get_stylesheet_uri());
+
+
+    
+    // The check blow, is for checking the FQDN - if it is the dev one, serve from localhost:3000
+    if (strstr($_SERVER['SERVER_NAME'], 'fictional-univercity.test')) {
+
+      // For auto loading when changes are detected
+      wp_enqueue_script('main-university-js', 'http://localhost:3000/bundled.js', NULL, '1.0', true);
+    } else {
+      wp_enqueue_script('our-vendors-js', get_theme_file_uri('/bundled-assets/vendors~scripts.8c97d901916ad616a264.js'), NULL, '1.0', true);
+      wp_enqueue_script('main-university-js', get_theme_file_uri('/bundled-assets/scripts.361ae884830d52b8ba98.js'), NULL, '1.0', true);
+      wp_enqueue_style('out-main-styles', get_theme_file_uri('/bundled-assets/styles.361ae884830d52b8ba98.css'));
+    }
     wp_enqueue_style('university_main_styles', get_stylesheet_uri());
   }
 
