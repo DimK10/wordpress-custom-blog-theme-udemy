@@ -8,3 +8,9 @@
     margin-bottom: 0;
   }
 }
+
+.generic-content {
+  & > p {
+      word-break: break-word;
+    }
+}

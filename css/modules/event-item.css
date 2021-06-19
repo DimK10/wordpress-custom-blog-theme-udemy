@@ -1,0 +1,5 @@
+.generic-content {
+    & > div > div {
+        word-break: break-word;
+    }
+}
