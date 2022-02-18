@@ -1,7 +1,7 @@
 class Search {
-    constructor() {
-        alert("Hello I am a search.")
-    }
+  constructor() {
+    alert("Hello I am a search.")
+  }
 }
 
 export default Search
